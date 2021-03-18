@@ -1,0 +1,14 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:VendingMachine="clr-namespace:Vend.App.VendingMachine"
+    x:Class="Vend.App.MainWindow"
+    Width="600"
+    Height="800">
+    <Grid>
+        <Grid.Resources>
+
+        </Grid.Resources>
+        <VendingMachine:VendingMachineView/>
+    </Grid>
+</Window>
