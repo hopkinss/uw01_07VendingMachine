@@ -32,7 +32,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
-                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.Resources>
                         <converters:ExactChangeIndicatorConverter x:Key="ExactChangeIndicatorConverter" />
@@ -60,7 +60,7 @@
                                     BorderBrush="{StaticResource fgSubduedMsgTextTheme}"
                                     BorderThickness="1"
                                     Content="{Binding Path=Vm.Box.ValueOf, Converter={StaticResource DecimalDisplayConverter}}"
-                                    ContentStringFormat="Vend Coinbox: {0}"
+                                    ContentStringFormat="Local Coinbox: {0}"
                                     Foreground="{StaticResource fgSubduedMsgTextTheme}" />
                             </StackPanel>
                         </StackPanel>
@@ -267,13 +267,20 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
 
-                        <Label
-                            Grid.ColumnSpan="3"
-                            HorizontalAlignment="Center"
-                            Content="Transfer Money between Vending Machine and Financial Instituion"
-                            FontSize="15"
-                            FontWeight="SemiBold" />
-                        <!--  Vending machine liar voz  -->
+                        <StackPanel Grid.ColumnSpan="3" HorizontalAlignment="Center">
+                            <Label
+                                Content="Transfer Money from Vending Machine Coin Box to External Bank(Coinbox)"
+                                FontSize="15"
+                                FontWeight="SemiBold" />
+                            <Label
+                                Grid.ColumnSpan="3"
+                                HorizontalAlignment="Center"
+                                Content="The local coinbox is located in the upper right corner of the vending machine"
+                                FontSize="12"
+                                FontStyle="Italic"
+                                Foreground="{StaticResource fgSubduedMsgTextTheme}" />
+                        </StackPanel>
+                        <!--  Vending machine list box  -->
                         <StackPanel Grid.Row="1" HorizontalAlignment="Left">
                             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                                 <Label Content="Vending Machine" />
@@ -320,11 +327,8 @@
                                 Style="{StaticResource SelectButton}"
                                 ToolTip="Move All">
                                 <Button.Content>
-
                                     <StackPanel Orientation="Horizontal">
                                         <icons:PackIconFontAwesome Kind="AngleDoubleRightSolid" />
-
-
                                     </StackPanel>
                                 </Button.Content>
                             </Button>
@@ -454,7 +458,7 @@
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
                                                 Foreground="MediumBlue"
-                                                Text="{Binding Vm.CanRack.CansOfRegular,Converter={StaticResource CanInventoryConverter}}" />
+                                                Text="{Binding Vm.CanRack.CansOfRegular, Converter={StaticResource CanInventoryConverter}}" />
                                             <!--  buttons to add remove cans  -->
                                             <Button
                                                 Grid.Column="2"
@@ -494,7 +498,7 @@
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
                                                 Foreground="MediumBlue"
-                                                Text="{Binding Vm.CanRack.CansOfLemon,Converter={StaticResource CanInventoryConverter}}" />
+                                                Text="{Binding Vm.CanRack.CansOfLemon, Converter={StaticResource CanInventoryConverter}}" />
                                             <!--  buttons to add remove cans  -->
                                             <Button
                                                 Grid.Row="1"
@@ -536,7 +540,7 @@
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
                                                 Foreground="MediumBlue"
-                                                Text="{Binding Vm.CanRack.CansOfOrange,Converter={StaticResource CanInventoryConverter}}" />
+                                                Text="{Binding Vm.CanRack.CansOfOrange, Converter={StaticResource CanInventoryConverter}}" />
                                             <!--  buttons to add remove cans  -->
                                             <Button
                                                 Grid.Row="2"
@@ -591,6 +595,28 @@
                             </StackPanel>
                         </StackPanel>
                     </Grid>
+                    <Button
+                        Grid.Row="4"
+                        Width="120"
+                        Height="30"
+                        Margin="0,0,10,10"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Click="ShowServiceNotes_Click"
+                        Style="{StaticResource SelectButton}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <icons:PackIconFontAwesome
+                                    Height="15"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Kind="ListAltRegular" />
+                                <Label Content="Service Notes"
+                                       Foreground="MediumBlue"
+                                       VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
                 </Grid>
             </TabItem>
         </TabControl>

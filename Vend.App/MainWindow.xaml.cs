@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Vend.App.ServiceNotes;
 
 namespace Vend.App
 {
@@ -7,8 +8,9 @@ namespace Vend.App
     {
         public MainWindow()
         {
+
             InitializeComponent();
-            this.Title = "Shawn Hopkins: Assignment 07";
+            this.Title = "Shawn Hopkins: Assignment 08";
 
         }
     }

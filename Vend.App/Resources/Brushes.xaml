@@ -4,5 +4,5 @@
     <SolidColorBrush x:Key="bgMainBrush" Color="White" />
     <SolidColorBrush x:Key="fgMsgTextTheme" Color="Red" />
     <SolidColorBrush x:Key="fgSubduedMsgTextTheme" Color="SlateGray" />
-    <SolidColorBrush x:Key="fgMoneyBrush" Color="Lime"/>
+    <SolidColorBrush x:Key="fgMoneyBrush" Color="Lime" />
 </ResourceDictionary>
