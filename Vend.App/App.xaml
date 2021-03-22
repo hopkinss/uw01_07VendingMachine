@@ -11,6 +11,5 @@
                 <ResourceDictionary Source="Resources/Brushes.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-
     </Application.Resources>
 </Application>

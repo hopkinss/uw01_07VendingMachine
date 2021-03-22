@@ -105,6 +105,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ServicePortal\ServicePortalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VendingMachine\CanDispenserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VendingMachine\CansView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VendingMachine\CoinsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VendingMachine\LocalCoinBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VendingMachine\VendingMachineView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -117,6 +137,22 @@
     <Compile Include="ServiceNotes\ServiceNote.cs" />
     <Compile Include="ServiceNotes\ServiceNotesView.xaml.cs">
       <DependentUpon>ServiceNotesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServicePortal\ServicePortalView.xaml.cs">
+      <DependentUpon>ServicePortalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServicePortal\ServicePortalViewModel.cs" />
+    <Compile Include="VendingMachine\CanDispenserView.xaml.cs">
+      <DependentUpon>CanDispenserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VendingMachine\CansView.xaml.cs">
+      <DependentUpon>CansView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VendingMachine\CoinsView.xaml.cs">
+      <DependentUpon>CoinsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VendingMachine\LocalCoinBoxView.xaml.cs">
+      <DependentUpon>LocalCoinBoxView.xaml</DependentUpon>
     </Compile>
     <Compile Include="VendingMachine\VendingMachine.cs" />
     <Compile Include="VendingMachine\VendingMachineView.xaml.cs">

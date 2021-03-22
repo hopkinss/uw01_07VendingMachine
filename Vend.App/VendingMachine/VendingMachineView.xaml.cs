@@ -12,11 +12,6 @@ namespace Vend.App.VendingMachine
             InitializeComponent();
         }
 
-        private void ShowServiceNotes_Click(object sender, RoutedEventArgs e)
-        {
-            var serviceNotes = new ServiceNotesView();
-            serviceNotes.Show();
 
-        }
     }
 }
