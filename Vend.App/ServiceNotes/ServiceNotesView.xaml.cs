@@ -6,9 +6,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
+using System.Linq;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
 
 namespace Vend.App.ServiceNotes
 {
@@ -46,13 +48,16 @@ namespace Vend.App.ServiceNotes
             var cb = new CheckBox()
             {
                 VerticalAlignment = VerticalAlignment.Center,
-                HorizontalAlignment = HorizontalAlignment.Left,
+                HorizontalAlignment = HorizontalAlignment.Center,
                 Margin = margin,
-                Width=25,
+                Width=80,               
                 BorderBrush = borderBrush,
+                IsChecked=true,
                
             };
 
+            cb.AddHandler(CheckBox.CheckedEvent, new RoutedEventHandler(EnableSave_Checked));
+            cb.AddHandler(CheckBox.UncheckedEvent, new RoutedEventHandler(EnableSave_Checked));
 
             var dd = new ComboBox()
             {
@@ -79,6 +84,24 @@ namespace Vend.App.ServiceNotes
             sp.Children.Add(dd);
             sp.Children.Add(tb);
             return sp;
+        }
+
+        // If any of the service note are checked, then enable save
+        private void EnableSave_Checked(object s, RoutedEventArgs e)
+        {
+            var canSave = false;
+            foreach (var c in sPanServiceNotes.Children)
+            {
+                foreach(var cc in ((StackPanel)c).Children)
+                {
+                    if (cc.GetType()==typeof(CheckBox))
+                    {
+                        if (((CheckBox)cc).IsChecked == true)
+                            canSave = true;
+                    }
+                }
+            }
+            menuItemSave.IsEnabled = canSave ;
         }
 
         private void MnuItmNew_Click(object sender, RoutedEventArgs e)
@@ -111,7 +134,7 @@ namespace Vend.App.ServiceNotes
             {
                 Title = "Save service notes to JSON file",
                 Filter = "JSON | *.json",
-                FileName=@"C:\temp\serviceNotes",
+                FileName=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),"service_notes"),
                 DefaultExt="json",
                 CreatePrompt=false,
                 OverwritePrompt=false,
@@ -119,6 +142,11 @@ namespace Vend.App.ServiceNotes
             if (sfd.ShowDialog() == true)
             {                
                 SaveAppendJson(sfd.FileName);
+                if( MessageBox.Show($"Updated data file: {sfd.FileName}.\n\nDo you with to open the file?",
+                    "File saved",MessageBoxButton.YesNo,MessageBoxImage.Information) == MessageBoxResult.Yes)
+                {
+                    Process.Start(sfd.FileName);
+                }
             }
             else
             {
@@ -175,5 +203,9 @@ namespace Vend.App.ServiceNotes
             }
 
         }
+
+
+
+
     }
 }

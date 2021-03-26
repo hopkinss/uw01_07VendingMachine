@@ -5,17 +5,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Vend.App.ServiceNotes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:msg="clr-namespace:Vend.App.Notifications"
+    xmlns:msg="clr-namespace:Vend.App.Notifications" xmlns:icons="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome"
     Title="ServiceNotesView"
     Width="800"
     Height="450"
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="20" />
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="userMsg" Visibility="Hidden"/>
+        <TextBlock Text="Vending Machine Service Note Manager" Foreground="MediumBlue" 
+                   FontSize="14" FontWeight="DemiBold" HorizontalAlignment="Center" />
         <DockPanel Grid.Row="1">
             <Menu
                 Height="25"
@@ -23,30 +24,60 @@
                 DockPanel.Dock="Top"
                 Foreground="MediumBlue">
                 <MenuItem Header="_File">
+                    <MenuItem.Icon>
+                        <StackPanel Orientation="Horizontal">
+                            <icons:PackIconFontAwesome Kind="FileAltRegular" />
+                        </StackPanel>
+                    </MenuItem.Icon>
                     <MenuItem
                         x:Name="menuItemNew"
                         Click="MnuItmNew_Click"
-                        Header="_New" />
+                        Header="_New">
+                        <MenuItem.Icon>
+                            <StackPanel Orientation="Horizontal">
+                                <icons:PackIconFontAwesome Kind="WindowMaximizeRegular" />
+                            </StackPanel>
+                        </MenuItem.Icon>
+                    </MenuItem>
                     <MenuItem
                         x:Name="menuItemOpen"
                         Click="MnuItmOpen_Click"
-                        Header="_Open" />
+                        Header="_Open" >
+                        <MenuItem.Icon>
+                            <StackPanel Orientation="Horizontal">
+                                <icons:PackIconFontAwesome Kind="FolderOpenRegular" />
+                            </StackPanel>
+                        </MenuItem.Icon>
+                    </MenuItem>
                     <MenuItem
                         x:Name="menuItemSave"
                         Click="MnuItmSave_Click"
-                        Header="_Save" />
+                        IsEnabled="False"
+                        Header="_Save" >
+                        <MenuItem.Icon>
+                            <StackPanel Orientation="Horizontal">
+                                <icons:PackIconFontAwesome Kind="SaveRegular" />
+                            </StackPanel>
+                        </MenuItem.Icon>
+                    </MenuItem>
                     <Separator />
                     <MenuItem
                         x:Name="menuItemExit"
                         Click="MnuItmExit_Click"
-                        Header="_Exit" />
+                        Header="_Exit">
+                        <MenuItem.Icon>
+                            <StackPanel Orientation="Horizontal">
+                                <icons:PackIconFontAwesome Kind="WindowCloseRegular" />
+                            </StackPanel>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
             </Menu>
             <StackPanel
                 Background="Gainsboro"
                 DockPanel.Dock="Top"
                 Orientation="Horizontal">
-                <Label Width="50" Foreground="{StaticResource fgTextTheme}">
+                <Label Width="100" Foreground="{StaticResource fgTextTheme}">
                     <Label.Content>
                         <AccessText Text="Include Issue?" TextWrapping="Wrap" />
                     </Label.Content>

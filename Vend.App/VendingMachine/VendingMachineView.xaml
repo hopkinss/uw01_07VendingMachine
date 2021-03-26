@@ -24,6 +24,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
+                    <!--User controls for vending machine-->
                     <local:LocalCoinBoxView />
                     <msg:NotificationView Grid.Row="1" Grid.ColumnSpan="3" />
                     <local:CansView Grid.Row="2" />
@@ -32,6 +33,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Service Portal">
+                <!--User controls for service portal-->
                 <sp:ServicePortalView />
             </TabItem>
         </TabControl>
